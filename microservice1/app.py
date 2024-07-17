@@ -3,19 +3,29 @@ from nats import NATS
 import os
 import asyncio
 import time
+import uvicorn
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
 
-async def main():
-    
+app = FastAPI()   
+
+
+@app.on_event("startup")
+async def lifespan():
+    global i 
+    i = 0
+    global nc
     nc = NATS()
     await nc.connect("localhost:4222")
-
+    global js
     js = nc.jetstream()
-
     await js.add_stream(name="events", subjects=["foo"])
+    yield
     
-    for i in range(0, 10):
-        ack = await js.publish("foo", b'id:%d' % i)
-        await asyncio.sleep(1)
-        print(ack)
-if __name__ == "__main__":
-    asyncio.run(main())
+
+@app.get("/")
+async def root():
+
+    ack = await js.publish("foo", b'id:%d' % i)
+    i+=1
+    print(ack)

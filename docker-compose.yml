@@ -28,14 +28,18 @@ services:
         reservations:
           memory: 200M
     restart: always
+  
   microservice1:
     volumes:
       - ./microservice1:/app/microservice1
     build: microservice1/.
     networks:
       - internet
+    ports:
+      - 9000:9000
     depends_on:
       - nats-server
+  
   microservice2:
     volumes:
       - ./microservice2:/app/microservice2
@@ -44,3 +48,4 @@ services:
       - internet
     depends_on:
       - nats-server
+      - microservice1

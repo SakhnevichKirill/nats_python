@@ -7,5 +7,5 @@ RUN pip install -r requirements.txt
 CMD [ "cd", "app/microservice2" ]
 WORKDIR ./app
 
-CMD [ "./microservice2/run.sh" ]
+CMD [ "python", "-m", "microservice2.app" ]
 

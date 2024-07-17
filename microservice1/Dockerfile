@@ -7,5 +7,7 @@ RUN pip install -r requirements.txt
 CMD [ "cd", "app/microservice1" ]
 WORKDIR ./app
 
-CMD [ "./microservice1/run.sh" ]
+EXPOSE 9000
+
+CMD [ "python", "microservice1/app.py" ]
 

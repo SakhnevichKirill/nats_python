@@ -8,7 +8,8 @@ import random
 async def main():
     
     nc = NATS()
-    await nc.connect("localhost:4222")
+    # await nc.connect("localhost:4222")
+    await nc.connect("nats-server")
     js = nc.jetstream()
     await js.add_stream(name="events", subjects=["foo"])
     cons = await js.add_consumer(
@@ -41,7 +42,6 @@ async def main():
             except Exception as err:
                 print(err)
                 # There should be no timeout as redeliveries should happen faster.
-                break
     info = await js.consumer_info("events", "a")
     print(info)    
     await nc.close()

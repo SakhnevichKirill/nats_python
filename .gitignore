@@ -1,0 +1,5 @@
+microservice1/__pycache__/
+microservice1/src/__pycache__/
+microservice2/__pycache__/
+microservice2/src/__pycache__/
+__pycache__/

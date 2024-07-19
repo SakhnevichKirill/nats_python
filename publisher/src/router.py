@@ -11,6 +11,5 @@ async def root(req = Request):
     await msg.connect()
     ack = await msg.js.publish("foo", b'id:%d' % msg.i)
     msg.i +=1 
-    print(ack)
     await msg.close()
     

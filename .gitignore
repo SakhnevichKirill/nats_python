@@ -4,3 +4,4 @@ microservice2/__pycache__/
 microservice2/src/__pycache__/
 __pycache__/
 .vscode/
+.env

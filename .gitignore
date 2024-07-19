@@ -1,7 +1,7 @@
-microservice1/__pycache__/
-microservice1/src/__pycache__/
-microservice2/__pycache__/
-microservice2/src/__pycache__/
+publisher/__pycache__/
+publisher/src/__pycache__/
+consumer/__pycache__/
+consumer/src/__pycache__/
 __pycache__/
 .vscode/
 .env

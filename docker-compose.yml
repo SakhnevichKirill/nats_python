@@ -5,7 +5,6 @@ networks:
     name: "internet"
     driver: bridge
 
-
 services:
   nats-server:
     command:
@@ -28,24 +27,25 @@ services:
         reservations:
           memory: 200M
     restart: always
-  
-  microservice1:
+
+  consumer:
     volumes:
-      - ./microservice1:/app/microservice1
-    build: microservice1/.
+      - ./consumer:/app/consumer
+    build: consumer/.
     networks:
       - internet
+    tty: true
+    depends_on:
+      - nats-server
+
+  publisher:
+    volumes:
+      - ./publisher:/app/publisher
+    build: publisher/.
+    networks:
+      - internet
+    tty: true
     ports:
       - 9000:9000
     depends_on:
       - nats-server
-  
-  microservice2:
-    volumes:
-      - ./microservice2:/app/microservice2
-    build: microservice2/.
-    networks:
-      - internet
-    depends_on:
-      - nats-server
-      - microservice1

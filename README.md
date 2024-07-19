@@ -1,8 +1,13 @@
 # nats_js
-для запуска nats + два микросервиса прописать docker compose up
+для запуска nats + два микросервиса прописать:
+```
+docker compose up
+```
 
 чтобы потестить 2 воркера:
-создать venv по requirements из второго микросервиса
-включить натс в докере
-нарыгать первым микросервисом
-запустить несколько вторых
+```
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r ./consumer/requirements.txt
+python -m pip install -r ./publisher/requirements.txt
+```

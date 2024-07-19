@@ -4,8 +4,10 @@ RUN pip install --upgrade pip
 ADD requirements.txt /
 RUN pip install -r requirements.txt
 
-CMD [ "cd", "app/microservice2" ]
+CMD [ "cd", "app/consumer" ]
+
 WORKDIR ./app
 
-CMD [ "python", "-m", "microservice2.app" ]
+CMD [ "python", "consumer/app.py" ]
+
 

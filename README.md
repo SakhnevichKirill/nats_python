@@ -1,13 +1,18 @@
 # nats_js
-для запуска nats + два микросервиса прописать:
+для запуска NATS прописать:
 ```
-docker compose up
+make up
 ```
 
-чтобы потестить 2 воркера:
+для запуска publisher и consumer прописать:
 ```
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r ./consumer/requirements.txt
-python -m pip install -r ./publisher/requirements.txt
+make up_services
 ```
+
+для запуска только publisher прописать:
+```
+make up_publisher
+```
+
+Ручка сервиса publisher находится по ссылке [http://localhost:9005](http://localhost:9005)
+Для теста прописать команду из test.sh

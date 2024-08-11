@@ -46,6 +46,6 @@ services:
       - internet
     tty: true
     ports:
-      - 9000:9000
+      - 9005:9005
     depends_on:
       - nats-server

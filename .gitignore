@@ -5,3 +5,4 @@ consumer/src/__pycache__/
 __pycache__/
 .vscode/
 .env
+_data/nats/data

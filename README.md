@@ -14,5 +14,5 @@ make up_services
 make up_publisher
 ```
 
-Ручка сервиса publisher находится по ссылке [http://localhost:9005](http://localhost:9005)
+Ручка сервиса publisher находится по ссылке [http://localhost:9005](http://localhost:9005)  
 Для теста прописать команду из test.sh

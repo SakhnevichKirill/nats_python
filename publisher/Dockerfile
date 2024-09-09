@@ -7,7 +7,7 @@ RUN pip install -r requirements.txt
 CMD [ "cd", "app/publisher" ]
 WORKDIR ./app
 
-EXPOSE 9000
+EXPOSE 9005
 
 CMD [ "python", "publisher/app.py" ]
 
